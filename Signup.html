@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="signup-container">
+    <form id="signupForm">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" required>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="workerid">Worker ID</label>
+        <input type="text" id="workerid" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
+      </div>
+      <button type="submit">Register</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const firstname = document.getElementById("firstname").value;
+      const lastname = document.getElementById("lastname").value;
+      const username = document.getElementById("username").value;
+      const workerid = document.getElementById("workerid").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      if (password !== confirmPassword) {
+        message.style.color = "red";
+        message.textContent = "Passwords do not match.";
+        return;
+      }
+
+      if (firstname && lastname && username && workerid && email && password) {
+        message.style.color = "green";
+        message.textContent = `Welcome, ${firstname} ${lastname}! Your account has been created.`;
+        document.getElementById("signupForm").reset();
+      } else {
+        message.style.color = "red";
+        message.textContent = "Please fill in all fields.";
+      }
+    });
+  </script>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDORVZlkaJZaz92mSF4Ee716WNprGRuWDY",
+    authDomain: "smaqua.firebaseapp.com",
+    projectId: "smaqua",
+    storageBucket: "smaqua.firebasestorage.app",
+    messagingSenderId: "321664391700",
+    appId: "1:321664391700:web:fe597d76dd8b8384042501",
+    measurementId: "G-71ZBXK4ZR0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</html>

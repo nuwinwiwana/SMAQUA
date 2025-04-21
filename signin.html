@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <form id="loginForm">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" required />
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" required />
+      </div>
+      <button type="submit">Login</button>
+      <p id="loginMessage"></p>
+    </form>
+    <form id="forgotPass">
+        <div>
+            <label for="forgotpassword">forgot password? click <a href="ForgotPass.html">here!</a>  </label> 
+        </div>
+    </form>
+    <form id="NewUser">
+        <div>
+            <label for="NewUser">New User? Signup <a href="Signup.html">here!</a>  </label> 
+        </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("loginUsername").value;
+      const password = document.getElementById("loginPassword").value;
+      const message = document.getElementById("loginMessage");
+
+      if (username === "admin" && password === "admin123") {
+        message.style.color = "green";
+        message.textContent = "Login successful. Redirecting...";
+        // Example redirect (replace with actual destination)
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1500);
+      } else {
+        message.style.color = "red";
+        message.textContent = "Invalid username or password.";
+      }
+    });
+  </script>
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDORVZlkaJZaz92mSF4Ee716WNprGRuWDY",
+      authDomain: "smaqua.firebaseapp.com",
+      projectId: "smaqua",
+      storageBucket: "smaqua.firebasestorage.app",
+      messagingSenderId: "321664391700",
+      appId: "1:321664391700:web:fe597d76dd8b8384042501",
+      measurementId: "G-71ZBXK4ZR0"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  
+</html>

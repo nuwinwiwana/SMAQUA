@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logout</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="signup-container">
+    <h2>You have been logged out.</h2>
+    <p>Thank you for visiting! You will be redirected to the login page shortly.</p>
+    <button onclick="window.location.href='signin.html';">Go to Login</button>
+  </div>
+
+  <script>
+    setTimeout(function () {
+      window.location.href = "signin.html"; // Redirect after 3 seconds
+    }, 3000);
+  </script>
+</body>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDORVZlkaJZaz92mSF4Ee716WNprGRuWDY",
+    authDomain: "smaqua.firebaseapp.com",
+    projectId: "smaqua",
+    storageBucket: "smaqua.firebasestorage.app",
+    messagingSenderId: "321664391700",
+    appId: "1:321664391700:web:fe597d76dd8b8384042501",
+    measurementId: "G-71ZBXK4ZR0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+</html>
