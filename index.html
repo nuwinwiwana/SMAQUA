@@ -41,14 +41,23 @@
       const password = document.getElementById("loginPassword").value;
       const message = document.getElementById("loginMessage");
 
-      if (username === "admin" && password === "admin123") {
+      if (username === "user" && password === "user123") {
         message.style.color = "green";
         message.textContent = "Login successful. Redirecting...";
         // Example redirect (replace with actual destination)
         setTimeout(() => {
           window.location.href = "dashboard.html";
         }, 1500);
-      } else {
+      } 
+      else if (username === "admin" && password === "admin123"){
+        message.style.color = "green";
+        message.textContent = "Login successful. Redirecting...";
+        // Example redirect (replace with actual destination)
+        setTimeout(() => {
+          window.location.href = "dashboardadmin.html";
+        }, 1500);
+      }
+      else {
         message.style.color = "red";
         message.textContent = "Invalid username or password.";
       }
